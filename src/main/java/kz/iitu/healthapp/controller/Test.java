@@ -1,6 +1,6 @@
 package kz.iitu.healthapp.controller;
 
-import kz.iitu.healthapp.service.AuthenticationService;
+import kz.iitu.healthapp.service.impl.AuthenticationServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test")
 @RequiredArgsConstructor
 public class Test {
-    private final AuthenticationService authenticationService;
+    private final AuthenticationServiceImpl authenticationServiceImpl;
 
     @GetMapping("/get")
     public ResponseEntity<?> register() {
-        return ResponseEntity.ok(authenticationService.getAll());
+        return ResponseEntity.ok(authenticationServiceImpl.getAll());
     }
 
 }

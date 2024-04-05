@@ -13,14 +13,15 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "patient")
+@Table(name = "doctor")
 public class Doctor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(mappedBy = "doctor")
+    @OneToOne
+    @JoinColumn(name = "user_id", unique = true)
     private User user;
 
     private String firstName;

@@ -35,10 +35,10 @@ public class Prescription {
     private String frequency;
 
     @Column
-    private java.sql.Date startDate;
+    private LocalDateTime startDate;
 
     @Column
-    private java.sql.Date endDate;
+    private LocalDateTime endDate;
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

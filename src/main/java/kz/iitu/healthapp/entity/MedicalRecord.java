@@ -28,7 +28,7 @@ public class MedicalRecord {
     private Doctor doctor;
 
     @Column
-    private java.sql.Date recordDate;
+    private LocalDateTime recordDate;
 
     @Column(columnDefinition = "text")
     private String diagnosis;

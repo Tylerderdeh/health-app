@@ -7,5 +7,6 @@ import java.util.List;
 public interface CrudServiceForDoctor {
     List<DoctorDTO> getAll();
 
+    DoctorDTO getById(Long id);
 
 }

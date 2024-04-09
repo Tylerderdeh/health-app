@@ -1,9 +1,8 @@
 package kz.iitu.healthapp.service.impl;
 
+import kz.iitu.healthapp.model.DoctorDTO;
 import kz.iitu.healthapp.model.PatientDTO;
-import kz.iitu.healthapp.repository.DoctorRepository;
 import kz.iitu.healthapp.repository.PatientRepository;
-import kz.iitu.healthapp.service.CrudServiceForDoctor;
 import kz.iitu.healthapp.service.CrudServiceForPatient;
 import kz.iitu.healthapp.util.Mapper;
 import lombok.RequiredArgsConstructor;
@@ -24,5 +23,10 @@ public class PatientServiceImpl implements CrudServiceForPatient {
                 .stream()
                 .map(mapper::mapPatientToDTO)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public PatientDTO getById(Long id) {
+        return mapper.mapPatientToDTO(patientRepository.findById(id).orElseThrow());
     }
 }

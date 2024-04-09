@@ -1,15 +1,13 @@
 package kz.iitu.healthapp.controller;
 
-import kz.iitu.healthapp.service.CrudServiceForDoctor;
 import kz.iitu.healthapp.service.CrudServiceForPatient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/patient")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping("/api/patient")
 @RequiredArgsConstructor
 public class PatientController {
 
@@ -19,4 +17,10 @@ public class PatientController {
     public ResponseEntity<?> getAll() {
         return ResponseEntity.ok(crudServiceForPatient.getAll());
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(crudServiceForPatient.getById(id));
+    }
+
 }

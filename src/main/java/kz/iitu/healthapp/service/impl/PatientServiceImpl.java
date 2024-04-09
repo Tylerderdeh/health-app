@@ -29,4 +29,9 @@ public class PatientServiceImpl implements CrudServiceForPatient {
     public PatientDTO getById(Long id) {
         return mapper.mapPatientToDTO(patientRepository.findById(id).orElseThrow());
     }
+
+    @Override
+    public PatientDTO getByUserId(Long id) {
+        return mapper.mapPatientToDTO(patientRepository.findByUserId(id));
+    }
 }

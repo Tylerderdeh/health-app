@@ -9,4 +9,6 @@ public interface CrudServiceForDoctor {
 
     DoctorDTO getById(Long id);
 
+    DoctorDTO getByUserId(Long id);
+
 }

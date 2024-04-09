@@ -1,7 +1,8 @@
-package kz.iitu.healthapp.service;
+package kz.iitu.healthapp.service.impl;
 
 import kz.iitu.healthapp.model.CreateAppointmentRequest;
 import kz.iitu.healthapp.repository.AppointmentRepository;
+import kz.iitu.healthapp.service.AppointmentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,11 @@
 package kz.iitu.healthapp.service.impl;
 
+import kz.iitu.healthapp.entity.Doctor;
+import kz.iitu.healthapp.entity.Role;
+import kz.iitu.healthapp.entity.User;
 import kz.iitu.healthapp.model.DoctorDTO;
+import kz.iitu.healthapp.model.PatientDTO;
+import kz.iitu.healthapp.model.UserResponse;
 import kz.iitu.healthapp.repository.DoctorRepository;
 import kz.iitu.healthapp.service.CrudServiceForDoctor;
 import kz.iitu.healthapp.util.Mapper;
@@ -15,23 +20,20 @@ import java.util.stream.Collectors;
 public class DoctorServiceImpl implements CrudServiceForDoctor {
 
     private final DoctorRepository doctorRepository;
-    private final Mapper mapper;
 
     @Override
-    public List<DoctorDTO> getAll() {
-        return doctorRepository.findAll()
-                .stream()
-                .map(mapper::mapDoctorToDTO)
-                .collect(Collectors.toList());
+    public List<Doctor> getAll() {
+        return doctorRepository.findAll();
     }
 
     @Override
-    public DoctorDTO getById(Long id) {
-        return mapper.mapDoctorToDTO(doctorRepository.findById(id).orElseThrow());
+    public Doctor getById(Long id) {
+        return doctorRepository.findById(id).orElseThrow();
     }
 
     @Override
-    public DoctorDTO getByUserId(Long id) {
-        return mapper.mapDoctorToDTO(doctorRepository.findByUserId(id));
+    public Doctor getByUserId(Long id) {
+        return doctorRepository.findByUserId(id);
     }
+
 }

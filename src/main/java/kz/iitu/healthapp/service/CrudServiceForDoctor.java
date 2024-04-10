@@ -1,14 +1,16 @@
 package kz.iitu.healthapp.service;
 
+import kz.iitu.healthapp.entity.Doctor;
 import kz.iitu.healthapp.model.DoctorDTO;
 
+import javax.print.Doc;
 import java.util.List;
 
 public interface CrudServiceForDoctor {
-    List<DoctorDTO> getAll();
+    List<Doctor> getAll();
 
-    DoctorDTO getById(Long id);
+    Doctor getById(Long id);
 
-    DoctorDTO getByUserId(Long id);
+    Doctor getByUserId(Long id);
 
 }

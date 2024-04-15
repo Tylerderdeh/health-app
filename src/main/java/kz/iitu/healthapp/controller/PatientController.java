@@ -20,7 +20,7 @@ public class PatientController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable Long id) {
-        return ResponseEntity.ok(crudServiceForPatient.getById(id));
+        return ResponseEntity.ok(crudServiceForPatient.getPatientDTOById(id));
     }
 
 }

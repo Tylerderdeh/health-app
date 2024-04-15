@@ -21,7 +21,6 @@ import java.util.stream.Collectors;
 public class DoctorController {
 
     private final CrudServiceForDoctor crudServiceForDoctor;
-    private final CrudServiceForPatient crudServiceForPatient;
     private final Mapper mapper;
 
     @GetMapping("/getAll")

@@ -2,17 +2,11 @@ package kz.iitu.healthapp.util;
 
 import kz.iitu.healthapp.entity.Doctor;
 import kz.iitu.healthapp.entity.Patient;
-import kz.iitu.healthapp.entity.Role;
-import kz.iitu.healthapp.entity.User;
 import kz.iitu.healthapp.model.DoctorDTO;
 import kz.iitu.healthapp.model.PatientDTO;
-import kz.iitu.healthapp.model.UserResponse;
-import kz.iitu.healthapp.service.CrudServiceForDoctor;
-import kz.iitu.healthapp.service.CrudServiceForPatient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 
 @Component
 @RequiredArgsConstructor

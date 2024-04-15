@@ -1,5 +1,6 @@
 package kz.iitu.healthapp.service.impl;
 
+import kz.iitu.healthapp.entity.Patient;
 import kz.iitu.healthapp.model.DoctorDTO;
 import kz.iitu.healthapp.model.PatientDTO;
 import kz.iitu.healthapp.repository.PatientRepository;
@@ -26,12 +27,16 @@ public class PatientServiceImpl implements CrudServiceForPatient {
     }
 
     @Override
-    public PatientDTO getById(Long id) {
+    public PatientDTO getPatientDTOById(Long id) {
         return mapper.mapPatientToDTO(patientRepository.findById(id).orElseThrow());
     }
 
     @Override
     public PatientDTO getByUserId(Long id) {
         return mapper.mapPatientToDTO(patientRepository.findByUserId(id));
+    }
+
+    public Patient getById(Long id) {
+        return patientRepository.findById(id).orElseThrow();
     }
 }

@@ -21,7 +21,7 @@ public class Medication {
     private Long Id;
 
     @Column(nullable = false, length = 100)
-    private String fio;
+    private String name;
 
     @Column(columnDefinition = "text")
     private String description;

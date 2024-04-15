@@ -47,6 +47,11 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
+    public Appointment getById(Long appointmentId) {
+        return appointmentRepository.findById(appointmentId).orElse(new Appointment());
+    }
+
+    @Override
     public List<Appointment> getAllByDoctor(Long doctorId) {
         Doctor doctor = doctorService.getById(doctorId);
         return appointmentRepository.findAllByDoctor(doctor);

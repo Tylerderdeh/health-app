@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/api/prescription")
@@ -15,8 +17,9 @@ public class PrescriptionController {
 
     private final PrescriptionService prescriptionService;
 
-    @PostMapping("/create")
-    public ResponseEntity<?> createPrescription(@RequestBody CreatePrescriptionRequest createPrescriptionRequest) {
+    @PostMapping("/create/{recordId}")
+    public ResponseEntity<?> createPrescription(@RequestBody List<CreatePrescriptionRequest> createPrescriptionRequest, @PathVariable Long recordId) {
+        prescriptionService.createPrescription(createPrescriptionRequest,recordId);
         return ResponseEntity.ok().build();
     }
 

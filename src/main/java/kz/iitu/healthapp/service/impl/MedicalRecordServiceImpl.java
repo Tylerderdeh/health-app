@@ -48,6 +48,11 @@ public class MedicalRecordServiceImpl implements MedicalRecordService {
     }
 
     @Override
+    public MedicalRecord getById(Long recordId) {
+        return medicalRecordRepository.findById(recordId).orElse(new MedicalRecord());
+    }
+
+    @Override
     public List<MedicalRecord> getAllByDoctor(Long doctorId) {
         Doctor doctor = doctorService.getById(doctorId);
         return medicalRecordRepository.findAllByDoctor(doctor);

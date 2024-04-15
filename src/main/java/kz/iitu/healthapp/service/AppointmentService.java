@@ -11,6 +11,7 @@ public interface AppointmentService {
 
     void updateAppointmentStatus(Long appointmentId, String newStatus);
 
+    Appointment getById(Long appointmentId);
     List<Appointment> getAllByDoctor(Long doctorId);
     List<Appointment> getAllByPatient(Long patientId);
 }

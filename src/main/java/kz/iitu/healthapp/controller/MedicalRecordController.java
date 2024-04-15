@@ -25,6 +25,11 @@ public class MedicalRecordController {
         return ResponseEntity.ok(medicalRecordService.getAllByPatient(patientId));
     }
 
+    @GetMapping("getById/{recordId}")
+    public ResponseEntity<?> getById(@PathVariable Long recordId){
+        return ResponseEntity.ok(medicalRecordService.getById(recordId));
+    }
+
     @PostMapping("/create/{patientId}/{doctorId}")
     public ResponseEntity<?> createMedicalRecord(@PathVariable Long patientId, @PathVariable Long doctorId,@RequestBody CreateMedicalRecordRequest createMedicalRecordRequest) {
         medicalRecordService.createMedicalRecord(patientId,doctorId,createMedicalRecordRequest);

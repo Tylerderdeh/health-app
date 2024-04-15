@@ -11,6 +11,7 @@ public interface MedicalRecordService {
     void createMedicalRecord(Long patientId, Long doctorId, CreateMedicalRecordRequest request);
 
     void updateMedicalRecord(Long recordId, UpdateMedicalRecordRequest request);
+    MedicalRecord getById(Long recordId);
     List<MedicalRecord> getAllByDoctor(Long doctorId);
 
     List<MedicalRecord> getAllByPatient(Long patientId);

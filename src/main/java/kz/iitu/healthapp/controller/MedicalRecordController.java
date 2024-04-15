@@ -16,13 +16,24 @@ public class MedicalRecordController {
 
     private final MedicalRecordService medicalRecordService;
 
-    @PostMapping("/create")
-    public ResponseEntity<?> createMedicalRecord(@RequestBody CreateMedicalRecordRequest createMedicalRecordRequest) {
-        return ResponseEntity.ok().build();
+    @GetMapping("getAllForDoctor/{doctorId}")
+    public ResponseEntity<?> getAllForDoctor(@PathVariable Long doctorId){
+        return ResponseEntity.ok(medicalRecordService.getAllByDoctor(doctorId));
+    }
+    @GetMapping("getAllForPatient/{patientId}")
+    public ResponseEntity<?> getAllForPatient(@PathVariable Long patientId){
+        return ResponseEntity.ok(medicalRecordService.getAllByPatient(patientId));
+    }
+
+    @PostMapping("/create/{patientId}/{doctorId}")
+    public ResponseEntity<?> createMedicalRecord(@PathVariable Long patientId, @PathVariable Long doctorId,@RequestBody CreateMedicalRecordRequest createMedicalRecordRequest) {
+        medicalRecordService.createMedicalRecord(patientId,doctorId,createMedicalRecordRequest);
+        return ResponseEntity.ok("Medical-record has created!");
     }
 
     @PutMapping("/{recordId}/update")
     public ResponseEntity<?> updateMedicalRecord(@PathVariable Long recordId, @RequestBody UpdateMedicalRecordRequest updateMedicalRecordRequest) {
-        return ResponseEntity.ok().build();
+        medicalRecordService.updateMedicalRecord(recordId,updateMedicalRecordRequest);
+        return ResponseEntity.ok("Medical-record has updated!");
     }
 }

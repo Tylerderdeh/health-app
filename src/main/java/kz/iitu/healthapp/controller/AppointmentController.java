@@ -14,9 +14,13 @@ public class AppointmentController {
 
     private final AppointmentService appointmentService;
 
-    @GetMapping("getAll/{doctorId}")
-    public ResponseEntity<?> getAll(@PathVariable Long doctorId){
+    @GetMapping("getAllForDoctor/{doctorId}")
+    public ResponseEntity<?> getAllForDoctor(@PathVariable Long doctorId){
         return ResponseEntity.ok(appointmentService.getAllByDoctor(doctorId));
+    }
+    @GetMapping("getAllForPatient/{patientId}")
+    public ResponseEntity<?> getAllForPatient(@PathVariable Long patientId){
+        return ResponseEntity.ok(appointmentService.getAllByPatient(patientId));
     }
 
     @PostMapping("/create/{patientId}/{doctorId}")

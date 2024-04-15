@@ -25,6 +25,7 @@ public class PrescriptionController {
 
     @PutMapping("/{prescriptionId}/update")
     public ResponseEntity<?> updatePrescription(@PathVariable Long prescriptionId, @RequestBody UpdatePrescriptionRequest updatePrescriptionRequest) {
+        prescriptionService.updatePrescription(prescriptionId,updatePrescriptionRequest);
         return ResponseEntity.ok().build();
     }
 }

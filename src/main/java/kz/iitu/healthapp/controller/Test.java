@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/test")
 @RequiredArgsConstructor
+@Deprecated
 public class Test {
     private final AuthenticationServiceImpl authenticationServiceImpl;
 

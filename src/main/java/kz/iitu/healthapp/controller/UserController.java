@@ -1,5 +1,7 @@
 package kz.iitu.healthapp.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import kz.iitu.healthapp.service.CrudServiceForPatient;
 import kz.iitu.healthapp.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -14,11 +16,13 @@ public class UserController {
 
     private final UserService userService;
 
+    @Operation(summary = "My endpoint", security = @SecurityRequirement(name = "bearerAuth"))
     @GetMapping("/getAll")
     public ResponseEntity<?> getAll() {
         return ResponseEntity.ok(userService.getAll());
     }
 
+    @Operation(summary = "My endpoint", security = @SecurityRequirement(name = "bearerAuth"))
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable Long id) {
         return ResponseEntity.ok(userService.getById(id));

@@ -19,13 +19,13 @@ public class PrescriptionController {
 
     private final PrescriptionService prescriptionService;
 
-    @Operation(summary = "My endpoint", security = @SecurityRequirement(name = "bearerAuth"))
+    @Operation(summary = "Create a new prescription for a medical record", security = @SecurityRequirement(name = "bearerAuth"))
     @PostMapping("/create/{recordId}")
     public ResponseEntity<?> createPrescription(@RequestBody List<CreatePrescriptionRequest> createPrescriptionRequest, @PathVariable Long recordId) {
         prescriptionService.createPrescription(createPrescriptionRequest,recordId);
         return ResponseEntity.ok().build();
     }
-    @Operation(summary = "My endpoint", security = @SecurityRequirement(name = "bearerAuth"))
+    @Operation(summary = "Update a prescription", security = @SecurityRequirement(name = "bearerAuth"))
     @PutMapping("/{prescriptionId}/update")
     public ResponseEntity<?> updatePrescription(@PathVariable Long prescriptionId, @RequestBody UpdatePrescriptionRequest updatePrescriptionRequest) {
         prescriptionService.updatePrescription(prescriptionId,updatePrescriptionRequest);

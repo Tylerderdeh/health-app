@@ -15,13 +15,13 @@ public class PatientController {
 
     private final CrudServiceForPatient crudServiceForPatient;
 
-    @Operation(summary = "My endpoint", security = @SecurityRequirement(name = "bearerAuth"))
+    @Operation(summary = "Get all patient info", security = @SecurityRequirement(name = "bearerAuth"))
     @GetMapping("/getAll")
     public ResponseEntity<?> getAll() {
         return ResponseEntity.ok(crudServiceForPatient.getAll());
     }
 
-    @Operation(summary = "My endpoint", security = @SecurityRequirement(name = "bearerAuth"))
+    @Operation(summary = "Get patient info by ID", security = @SecurityRequirement(name = "bearerAuth"))
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable Long id) {
         return ResponseEntity.ok(crudServiceForPatient.getPatientDTOById(id));

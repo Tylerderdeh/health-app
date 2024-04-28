@@ -26,7 +26,7 @@ public class DoctorController {
 
     private final CrudServiceForDoctor crudServiceForDoctor;
     private final Mapper mapper;
-    @Operation(summary = "My endpoint", security = @SecurityRequirement(name = "bearerAuth"))
+    @Operation(summary = "Get all doctor info", security = @SecurityRequirement(name = "bearerAuth"))
     @GetMapping("/getAll")
     public ResponseEntity<?> getAll() {
         return ResponseEntity.ok(crudServiceForDoctor.getAll()
@@ -34,7 +34,7 @@ public class DoctorController {
                 .map(mapper::mapDoctorToDTO)
                 .collect(Collectors.toList()));
     }
-    @Operation(summary = "My endpoint", security = @SecurityRequirement(name = "bearerAuth"))
+    @Operation(summary = "Get doctor info by ID", security = @SecurityRequirement(name = "bearerAuth"))
     @GetMapping("/{id}")
     public ResponseEntity<?> getDoctorById(@PathVariable Long id) {
         return ResponseEntity.ok(mapper.mapDoctorToDTO(crudServiceForDoctor.getById(id)));

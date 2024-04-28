@@ -17,14 +17,14 @@ import org.springframework.web.bind.annotation.*;
 public class AuthenticationController {
 
     private final AuthenticationServiceImpl authenticationServiceImpl;
-    @Operation(summary = "My endpoint", security = @SecurityRequirement(name = "bearerAuth"))
+    @Operation(summary = "Register a new user", security = @SecurityRequirement(name = "bearerAuth"))
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
         @RequestBody RegisterRequest request
     ) {
         return ResponseEntity.ok(authenticationServiceImpl.register(request));
     }
-    @Operation(summary = "My endpoint", security = @SecurityRequirement(name = "bearerAuth"))
+    @Operation(summary = "Authenticate a user", security = @SecurityRequirement(name = "bearerAuth"))
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(
             @RequestBody AuthenticationRequest request

@@ -1,6 +1,13 @@
 server:
   port: 8070
 spring:
+  flyway:
+    locations: classpath:db/migration
+    enabled: true
+    url: jdbc:postgresql://localhost:5432/postgres
+    schemas: /postgres
+    user: postgres
+    password: postgres
   application:
         name: 'health-app'
   datasource:
@@ -8,10 +15,11 @@ spring:
     username: postgres
     password: postgres
   jpa:
-    hibernate:
-      ddl-auto: update
+#    hibernate:
+#      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+

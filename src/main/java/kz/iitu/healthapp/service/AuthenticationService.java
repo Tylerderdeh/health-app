@@ -5,6 +5,6 @@ import kz.iitu.healthapp.dto.AuthenticationResponse;
 import kz.iitu.healthapp.dto.RegisterRequest;
 
 public interface AuthenticationService {
-    AuthenticationResponse register(RegisterRequest request);
-    AuthenticationResponse authenticate(AuthenticationRequest request);
+    AuthenticationResponse<?> register(RegisterRequest request);
+    AuthenticationResponse<?> authenticate(AuthenticationRequest request);
 }

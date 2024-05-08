@@ -21,14 +21,14 @@ public class AuthenticationController {
     private final AuthenticationServiceImpl authenticationServiceImpl;
     @Operation(summary = "Register a new user", security = @SecurityRequirement(name = "bearerAuth"))
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(
+    public ResponseEntity<?> register(
         @RequestBody RegisterRequest request
     ) {
         return ResponseEntity.ok(authenticationServiceImpl.register(request));
     }
     @Operation(summary = "Authenticate a user", security = @SecurityRequirement(name = "bearerAuth"))
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate(
+    public ResponseEntity<?> authenticate(
             @RequestBody AuthenticationRequest request
     ) {
         return ResponseEntity.ok(authenticationServiceImpl.authenticate(request));

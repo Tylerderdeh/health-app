@@ -2,6 +2,7 @@ package kz.iitu.healthapp.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import kz.iitu.healthapp.entity.Medication;
 import kz.iitu.healthapp.service.MedicationService;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,7 @@ import java.util.List;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/api/medical-record")
 @RequiredArgsConstructor
-@Transactional
+@Tag(name="Управление лекарствами", description="Контроллер по управлению лекарствами")
 public class MedicationController {
 
     private final MedicationService medicationService;

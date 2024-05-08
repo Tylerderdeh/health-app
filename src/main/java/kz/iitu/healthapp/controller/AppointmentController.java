@@ -2,6 +2,7 @@ package kz.iitu.healthapp.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import kz.iitu.healthapp.model.CreateAppointmentRequest;
 import kz.iitu.healthapp.service.AppointmentService;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/api/appointments")
 @RequiredArgsConstructor
+@Tag(name="Запись на прием", description="Контроллер для записи на прием")
 public class AppointmentController {
 
     private final AppointmentService appointmentService;

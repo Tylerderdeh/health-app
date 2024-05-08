@@ -2,6 +2,7 @@ package kz.iitu.healthapp.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import kz.iitu.healthapp.model.CreateMedicalRecordRequest;
 import kz.iitu.healthapp.model.UpdateMedicalRecordRequest;
 import kz.iitu.healthapp.service.MedicalRecordService;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/api/medical-record")
 @RequiredArgsConstructor
+@Tag(name="Назначение пациента", description="Контроллер по управления назначениями")
 public class MedicalRecordController {
 
     private final MedicalRecordService medicalRecordService;

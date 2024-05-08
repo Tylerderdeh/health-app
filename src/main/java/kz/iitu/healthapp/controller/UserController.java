@@ -2,6 +2,7 @@ package kz.iitu.healthapp.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import kz.iitu.healthapp.service.CrudServiceForPatient;
 import kz.iitu.healthapp.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/api/user-info")
 @RequiredArgsConstructor
+@Tag(name="Упровлению пользователями", description="Контроллер по управлению пользователями")
 public class UserController {
 
     private final UserService userService;

@@ -2,6 +2,7 @@ package kz.iitu.healthapp.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import kz.iitu.healthapp.dto.AuthenticationRequest;
 import kz.iitu.healthapp.dto.AuthenticationResponse;
 import kz.iitu.healthapp.dto.RegisterRequest;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/auth")
 @RequiredArgsConstructor
+@Tag(name="Авторизация", description="Контроллер по авторизации")
 public class AuthenticationController {
 
     private final AuthenticationServiceImpl authenticationServiceImpl;

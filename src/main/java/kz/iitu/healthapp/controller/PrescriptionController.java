@@ -2,6 +2,7 @@ package kz.iitu.healthapp.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import kz.iitu.healthapp.model.CreatePrescriptionRequest;
 import kz.iitu.healthapp.model.UpdatePrescriptionRequest;
 import kz.iitu.healthapp.service.PrescriptionService;
@@ -15,6 +16,7 @@ import java.util.List;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/api/prescription")
 @RequiredArgsConstructor
+@Tag(name="Рецерт пациента", description="Контроллер по управлению рецептами")
 public class PrescriptionController {
 
     private final PrescriptionService prescriptionService;
